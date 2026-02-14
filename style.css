@@ -1,320 +1,119 @@
-body {
+* {
     margin: 0;
-    background: #ffffff;
-    display: flex;
-    justify-content: center;
-    font-family: 'Pretendard', -apple-system, system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
-}
-
-.app {
-    width: 100%;
-    max-width: 430px;
-    background: #ffffff;
-    min-height: 100vh;
-}
-
-/* 상단 */
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 16px;
-    height: 56px;
-    background: white;
-    font-weight: 600;
+    padding: 0;
     box-sizing: border-box;
-    position: relative; /* allow absolute centering of title */
 }
 
-.title {
-    position: absolute;
-    left: 0;
-    right: 0;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-    pointer-events: none; /* allow clicks on side buttons */
+body {
+    font-family: 'Pretendard', sans-serif;
+    background: #f5f6f8;
+    max-width: 430px;
+    margin: 0 auto;
 }
 
-.side {
-    min-width: 40px; /* allow actions side to grow for wider button */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #444;
-    font-size: 18px;
-}
-
-.side.back {
-    padding-left: 2px;
-    cursor: pointer;
-    font-size: 22px;
-}
-
-.side.actions {
-    padding-right: 8px;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.gear {
-    opacity: 0.9;
-    margin-left: 6px;
-}
-
-/* 앱 열기 버튼 style */
-.open-app {
-    border: 2px solid #2d6cdf;
-    color: #2d6cdf;
-    background: white;
-    border-radius: 8px;
-    padding: 6px 14px; /* wider horizontally */
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    line-height: 1;
-    white-space: nowrap; /* prevent wrapping */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.open-app:active,
-.open-app:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(45,108,223,0.12);
-}
-
-/* 잔액 */
+/* 잔액 영역 */
 .balance-section {
     background: #ffffff;
-    padding: 18px 16px 18px;
+    padding: 20px 16px;
     border-bottom: 1px solid #eeeeee;
 }
 
 .account {
     font-size: 13px;
     color: #6b6b6b;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .account .bank {
-    margin-left: 3px;              /* 👈 왼쪽 여백 추가 */
+    margin-left: 4px;
     font-weight: 500;
     text-decoration: underline;
     text-underline-offset: 3px;
-    text-decoration-thickness: 1px;
-    text-decoration-color: #222222;
 }
 
-
-
-/* 드롭다운 */
-.filter-section {
-    background: white;
-    padding: 4px 16px; /* reduced vertical padding */
-    position: relative;
-    border-bottom: none;
-    display: flex;
-    align-items: center;
-}
-
-.dropdown {
-    display: inline-flex;
-    align-items: center;
-    gap: 60px;
-    height: 30px; /* reduced height */
-    cursor: pointer;
-    padding: 2px 0;
-    position: relative; /* make menu positioned relative to label */
-}
-
-.dropdown-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 15px;
-    font-weight: 600;
-    color: #333;
-    /* center vertically within the 32px row */
-    line-height: 2px;
-}
-
-.arrow {
-    font-size: 1px;
-    color: #6b6b6b;
-    transition: transform 0.2s ease;
-    transform: none;
-    vertical-align: middle;
-}
-
-.arrow.rotate {
-    transform: rotate(180deg);
-}
-
-.dropdown-menu {
-    position: absolute;
-    top: calc(100% + 4px); /* place directly under the label with smaller gap */
-    left: 0;               /* align with the label's left edge */
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    display: none;
-    overflow: hidden;
-    min-width: 120px;
-    z-index: 10;
-}
-
-.dropdown-menu div {
-    padding: 8px 12px;
-    text-align: left;
-    font-size: 15px;
-}
-.dropdown-menu div:hover {
-    background: #f5f5f5;
-}
-
-/* 잔액 텍스트 스타일 */
-.balance {
-    display: flex;
-    align-items: baseline;
-    gap: 1px;
+.balance .label {
+    font-size: 16px;
+    margin-bottom: 6px;
 }
 
 .balance .amount {
-    font-size: 34px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    font-variant-numeric: tabular-nums;
-    line-height: 1;
-    letter-spacing: -3px;   /* 👈 여기에도 적용 */
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -1px;
 }
 
-.won {
-    /* '원' should share numeric properties with the amount */
-    font-size: 34px;
-    margin-left: 2px;
-    font-weight: 700;
-    font-variant-numeric: tabular-nums;
-    line-height: 1;
+/* 필터 */
+.filter-section {
+    background: #ffffff;
+    padding: 12px 16px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.dropdown-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.arrow {
+    font-size: 14px;
+}
+
+.dropdown-menu {
+    display: none;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    background: #ffffff;
+}
+
+.dropdown-menu div {
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.dropdown-menu div:hover {
+    background: #f2f2f2;
 }
 
 /* 거래내역 */
+.transactions {
+    background: #ffffff;
+}
+
 .transaction {
-    background: white;
-    padding: 10px 12px; /* slightly reduced padding */
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    min-height: 48px; /* reduce min height to tighten rows */
-    border-bottom: none;
-    margin-bottom: 4px; /* smaller gap between items */
+    padding: 14px 16px;
+    border-bottom: 1px solid #eeeeee;
 }
 
-.left {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-}
-
-.left .date {
-    font-size: 12px;
-    color: #9aa0a6;
-    width: 36px;
-    text-align: left;
-}
-
-.left .info {
+.transaction .info {
     display: flex;
     flex-direction: column;
 }
 
-.left .name {
-    font-size: 16px;
-    font-weight: 600;
-    color: #222;
-}
-
-.left .time {
+.transaction .date {
     font-size: 12px;
-    color: #9aa0a6;
-    margin-top: 2px;
+    color: #999999;
 }
 
-.right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 6px;
+.transaction .desc {
+    font-size: 14px;
+    margin-top: 4px;
 }
 
-.amount {
-    font-variant-numeric: tabular-nums;
-    font-size: 16px;
-    font-weight: 700;
+.transaction .money {
+    font-size: 15px;
+    font-weight: 500;
 }
 
-.deposit-amount {
-    color: #2d6cdf;
+.deposit {
+    color: #0064ff;
 }
 
-.withdraw-amount {
-    color: #222;
-}
-
-.total {
-    font-size: 12px;
-    color: #9aa0a6;
-}
-
-/* Ensure total number and '원' stick together and don't wrap */
-.total {
-    white-space: nowrap;
-    letter-spacing: normal;
-}
-
-.deposit-amount {
-    color: #2d6cdf;
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
-}
-
-.withdraw-amount {
-    color: #222;
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
-}
-
-/* Year separator between different years */
-.year-separator {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: -2px 8px 12px;  /* 위 4px, 좌우 8px, 아래 12px */
-}
-.year-separator .line {
-    flex: 1;
-    height: 1px;
-    background: #e6e6e6;
-}
-.year-separator .label {
-    color: #8a8a8a;
-    font-size: 13px;
-    font-weight: 600;
-    padding: 0 6px;
-    white-space: nowrap;
-}
-
-/* Footer text under transactions indicating queried month range */
-.transactions-footer {
-    text-align: center;
-    color: #8a8a8a;
-    font-size: 13px;
-    padding: 10px 12px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.withdraw {
+    color: #e53935;
 }
