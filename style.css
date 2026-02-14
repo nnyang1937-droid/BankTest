@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    background: #f2f3f5;
+    display: flex;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.app {
+    width: 100%;
+    max-width: 480px;
+    background: white;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.balance {
+    padding: 30px 20px;
+    font-size: 32px;
+    font-weight: bold;
+}

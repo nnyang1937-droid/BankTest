@@ -2,84 +2,13 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>두드림통장</title>
-
-<style>
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #f2f3f5;
-}
-
-/* 상단바 */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    font-weight: bold;
-    font-size: 20px;
-    background: white;
-}
-
-.gear {
-    cursor: pointer;
-    font-size: 22px;
-}
-
-/* 잔액 */
-.balance {
-    background: white;
-    padding: 30px 20px;
-    font-size: 40px;
-    font-weight: bold;
-}
-
-/* 내역 리스트 */
-.list {
-    margin-top: 10px;
-}
-
-.item {
-    background: white;
-    padding: 15px 20px;
-    margin-bottom: 2px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.deposit { color: #2d6cdf; }
-.withdraw { color: #333; }
-
-/* 설정 패널 */
-.settings {
-    position: fixed;
-    top: 0;
-    right: -250px;
-    width: 250px;
-    height: 100%;
-    background: white;
-    box-shadow: -3px 0 10px rgba(0,0,0,0.1);
-    transition: 0.3s;
-    padding: 20px;
-}
-
-.settings.open {
-    right: 0;
-}
-
-button {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: none;
-    background: #eee;
-    cursor: pointer;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+<div class="app">
 
 <div class="header">
     두드림통장
@@ -90,38 +19,13 @@ button {
     6,000,497원
 </div>
 
-<div class="list" id="transactionList">
+<div class="list">
     <div class="item deposit">결산이자 <span>+497원</span></div>
     <div class="item withdraw">전종현 <span>-759,844원</span></div>
-    <div class="item withdraw">김광남 <span>-280,000원</span></div>
-    <div class="item deposit">결산이자 <span>+652원</span></div>
 </div>
 
-<div class="settings" id="settingsPanel">
-    <h3>내역 필터</h3>
-    <button onclick="filter('all')">전체 보기</button>
-    <button onclick="filter('deposit')">입금만 보기</button>
-    <button onclick="filter('withdraw')">출금만 보기</button>
 </div>
 
-<script>
-function toggleSettings() {
-    document.getElementById("settingsPanel").classList.toggle("open");
-}
-
-function filter(type) {
-    const items = document.querySelectorAll(".item");
-    items.forEach(item => {
-        if (type === "all") {
-            item.style.display = "flex";
-        } else if (item.classList.contains(type)) {
-            item.style.display = "flex";
-        } else {
-            item.style.display = "none";
-        }
-    });
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
