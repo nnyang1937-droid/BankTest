@@ -2,27 +2,78 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>두드림통장</title>
+
+<!-- Pretendard -->
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 <div class="app">
 
-<div class="header">
-    두드림통장
-    <div class="gear" onclick="toggleSettings()">⚙️</div>
-</div>
+<header class="header">
+    <div class="side back" onclick="history.back()">‹</div>
+    <div class="title">두드림통장</div>
+    <div class="side actions"><button class="open-app">앱 열기</button></div>
+</header>
 
-<div class="balance">
-    6,000,497원
-</div>
+<section class="balance-section">
+    <div class="account"><span class="bank">    SC제일은행 65520230974</span></div>
+    <div class="balance">
+        <span class="amount">6,000,497</span>
+        <span class="won">원</span>
+    </div>
+</section>
 
-<div class="list">
-    <div class="item deposit">결산이자 <span>+497원</span></div>
-    <div class="item withdraw">전종현 <span>-759,844원</span></div>
-</div>
+<section class="filter-section">
+    <div class="dropdown" onclick="toggleDropdown()">
+        <div class="dropdown-label">
+            <span id="selectedFilter" class="filter-text">전체</span>
+            <span class="arrow" id="arrow">⌄</span>
+        </div>
+    </div>
+
+    <div class="dropdown-menu" id="dropdownMenu">
+        <div onclick="selectFilter('전체')">전체</div>
+        <div onclick="selectFilter('입금')">입금</div>
+        <div onclick="selectFilter('출금')">출금</div>
+    </div>
+</section>
+
+<!-- CSV UI removed: transactions are loaded from internal CSV files -->
+
+<section class="transaction-list">
+    <div class="transaction deposit">
+        <div class="left">
+            <div class="date">2.2</div>
+            <div class="info">
+                <div class="name">결산이자</div>
+                <div class="time">04:36</div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="amount deposit-amount">497원</div>
+            <div class="total">6,000,497원</div>
+        </div>
+    </div>
+
+    <div class="transaction withdraw">
+        <div class="left">
+            <div class="date">2.2</div>
+            <div class="info">
+                <div class="name">전종현</div>
+                <div class="time">18:38</div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="amount withdraw-amount">-759,844원</div>
+            <div class="total">6,000,497원</div>
+        </div>
+    </div>
+</section>
 
 </div>
 
